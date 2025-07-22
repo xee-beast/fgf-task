@@ -1,0 +1,200 @@
+/* Custom Task Manager Styles */
+body {
+    background-color: #f8f9fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.task-column {
+    min-height: 400px;
+    border-radius: 8px;
+    padding: 10px;
+    background-color: #f8f9fa;
+}
+
+.task-item {
+    background: white;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 10px;
+    cursor: grab;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.task-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.task-item.dragging {
+    opacity: 0.5;
+    transform: rotate(5deg);
+    cursor: grabbing;
+}
+
+/* Placeholder for drag and drop */
+.task-placeholder {
+    background: #e3f2fd;
+    border: 2px dashed #2196f3;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 10px;
+    text-align: center;
+    color: #1976d2;
+    font-weight: 500;
+}
+
+.placeholder-content {
+    padding: 20px;
+    font-size: 0.9rem;
+}
+
+.task-item h6 {
+    margin-bottom: 8px;
+    color: #333;
+    font-weight: 600;
+}
+
+.task-item p {
+    margin-bottom: 10px;
+    color: #666;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.task-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8rem;
+    color: #999;
+}
+
+.task-actions {
+    display: flex;
+    gap: 5px;
+}
+
+.btn-sm {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+}
+
+.status-badge {
+    font-size: 0.7rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 12px;
+}
+
+.status-todo {
+    background-color: #dc3545;
+    color: white;
+}
+
+.status-progress {
+    background-color: #ffc107;
+    color: #212529;
+}
+
+.status-done {
+    background-color: #198754;
+    color: white;
+}
+
+.drag-over {
+    background-color: #e3f2fd !important;
+    border: 2px dashed #2196f3 !important;
+    transition: all 0.3s ease;
+}
+
+.empty-state {
+    text-align: center;
+    color: #999;
+    font-style: italic;
+    padding: 30px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 10px;
+    }
+
+    .col-md-4 {
+        margin-bottom: 20px;
+    }
+
+    .task-item {
+        padding: 12px;
+    }
+
+    .card-header h5 {
+        font-size: 1rem;
+    }
+
+    .task-column {
+        min-height: 200px;
+    }
+}
+
+/* Animation for task creation */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.task-item.new-task {
+    animation: slideIn 0.3s ease-out;
+}
+
+/* Loading state */
+.loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+/* Success/Error notifications */
+.alert {
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+/* Custom scrollbar for task columns */
+.task-column {
+    max-height: 70vh;
+    overflow-y: auto;
+}
+
+.task-column::-webkit-scrollbar {
+    width: 6px;
+}
+
+.task-column::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.task-column::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 10px;
+}
+
+.task-column::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
+
+/* Enhanced drag feedback */
+.task-item[draggable="true"] {
+    user-select: none;
+}
+
+.task-item:active {
+    cursor: grabbing;
+}
